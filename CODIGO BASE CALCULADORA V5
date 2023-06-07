@@ -1,0 +1,259 @@
+#include <iostream>
+#include <math.h>
+#include <stdio.h>
+#include <windows.h>
+
+int main(int argc, char** args)
+{
+	
+		system("title CALCULADORA V.J.G.J");//le da un nombre a la consola emergente
+		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE );
+		//Inicio del programa 
+	int valor;
+	int base,exp,R;//variables usadas en la opcion potencia
+	char SoN;
+	float a, b, c, disc, x1, x2, xi, xr;
+	float dividendo; //Variable para almacenar el dividendo
+	float divisor;  //Variable para almacenar el divisor 
+	float cociente; //Variable para almacenar el cociente 
+	float n; //Variable flotante (numeros enteros y decimales)
+	char t;  //Variable de caracter 
+	t= 'i';  //Ejemplo de la variable "char"
+	
+	do{		
+		system("cls");//Elimina lo que se muestra en pantalla
+		SetConsoleTextAttribute(hConsole, 6);//Me sirve para cambair el color del texto en la pantalla
+		printf("*Menu de opciones*\n");
+		SetConsoleTextAttribute(hConsole, 7);//Me sirve para cambair el color del texto en la pantalla
+		printf("1. Sumar\n");
+		printf("2. Restar\n");
+		printf("3. Multiplicar\n");
+		printf("4. Dividir\n");
+		printf("5. Raiz cuadrada\n");
+		printf("6. Potencia\n");
+		printf("7. Polinomio cuadrado\n");
+		printf("8. Creditos(Extra)\n");
+		printf("9. Salir\n");
+		printf("Ingrese el numero de acuerdo a la opcion\n");
+		scanf("%i",&valor);
+		switch(valor)//Nos ayuda a difinir multiples casos
+		{
+			//SUMA
+			case 1:
+			system("cls");//Elimina lo que se muestra en pantalla
+			SetConsoleTextAttribute(hConsole, 2);//Me sirve para cambair el color del texto en la pantalla
+			printf("Se ha entrado a Sumar\n");
+			SetConsoleTextAttribute(hConsole, 7);
+			printf("Si desea continuar con la operacion presione la letra s, caso contrario presione cualquier tecla\n");//Imprime El mensaje en la consola una sola vez
+			scanf("%c",&SoN);scanf("%c",&SoN);
+			while(SoN=='S'||SoN=='s')//Evalua dos condiciones dentro del While por si es S mayuscula o minuscula
+			{
+				////////////////////////////////////////////
+				printf("\n Introduzca el primer numero: ");  
+				scanf("%f",&a);
+				printf("\n Introduzca el segundo numero: ");
+				scanf("%f",&b);
+				c=a+b;//Realiza la operacion de Suma
+				printf ("La suma de los dos numeros es: %.2f", c);
+				/////////////////////////////////////////
+				printf("\nDesea realizar otra operacion \n(S)Si\n(Cualquier Tecla)No\n");
+				scanf("%c",&SoN);scanf("%c",&SoN);//Escanea y almacena el dato de entrada en la variable SoN	
+			}
+					
+			break;
+			//RESTA
+			case 2:
+			system("cls");//Elimina lo que se muestra en pantalla
+			SetConsoleTextAttribute(hConsole, 3);//Me sirve para cambair el color del texto en la pantalla
+			printf("Se ha pulsado Restar\n");
+			SetConsoleTextAttribute(hConsole, 7);
+			printf("Si desea continuar con la operacion presione la letra s, caso contrario presione cualquier tecla\n");//Imprime El mensaje en la consola una sola vez
+			scanf("%c",&SoN);scanf("%c",&SoN);
+			while(SoN=='S'||SoN=='s')//Evalua dos condiciones dentro del While por si es S mayuscula o minuscula
+			{
+				////////////////////////////////////////////
+				printf("\n Introduzca el primer numero: ");  
+				scanf("%f",&a);
+				printf("\n Introduzca el segundo numero: ");
+				scanf("%f",&b);
+				c=a-b;//Realiza la operacion de Resta
+				printf ("La resta de los dos numeros es: %.2f", c);
+				/////////////////////////////////////////
+				printf("\nDesea realizar otra resta \n(S)Si\n(Cualquier Tecla)No\n");
+				scanf("%c",&SoN);scanf("%c",&SoN);//Escanea y almacena el dato de entrada en la variable SoN	
+			}
+					
+			break;
+			//MULTIPLICACION
+			case 3:
+			system("cls");//Elimina lo que se muestra en pantalla
+			SetConsoleTextAttribute(hConsole, 4);//Me sirve para cambair el color del texto en la pantalla
+			printf("Se ha pulsado Multiplicar\n");
+			SetConsoleTextAttribute(hConsole, 7);
+			printf("Si desea continuar con la operacion presione la letra s, caso contrario presione cualquier tecla\n");//Imprime El mensaje en la consola una sola vez
+			scanf("%c",&SoN);scanf("%c",&SoN);
+			while(SoN=='S'||SoN=='s')//Evalua dos condiciones dentro del While por si es S mayuscula o minuscula
+			{
+				////////////////////////////////////////////
+				printf("\n Introduzca el primer numero: ");  
+				scanf("%f",&a);
+				printf("\n Introduzca el segundo numero: ");
+				scanf("%f",&b);
+				c=a*b;//Realiza la operacion de Multiplicacion
+				printf ("La mupltiplicacion de los dos numeros es: %.2f", c);
+				/////////////////////////////////////////
+				printf("\nDesea realizar otra operacion \n(S)Si\n(Cualquier Tecla)No\n");
+				scanf("%c",&SoN);scanf("%c",&SoN);//Escanea y almacena el dato de entrada en la variable SoN	
+			}
+			break;
+			//DIVISION
+			case 4:
+			system("cls"); //Elimina lo que se muestra en pantalla
+			SetConsoleTextAttribute(hConsole, 5);//Me sirve para cambair el color del texto en la pantalla
+			printf("Se ha pulsado Dividir\n");
+			SetConsoleTextAttribute(hConsole, 7);
+			printf("Si desea continuar con la operacion presione la letra s, caso contrario presione cualquier tecla\n");//Imprime El mensaje en la consola una sola vez
+			scanf("%c",&SoN);scanf("%c",&SoN);
+			while(SoN=='S'||SoN=='s')//Evalua dos condiciones dentro del While por si es S mayuscula o minuscula
+			{
+				////////////////////////////////////////////
+				printf("\nIngrese el dividendo:"); // Solicita al usuario ingresar el dividendo 
+				scanf("%f",&dividendo);  // leer el valor del dividendo desde la entrada estándar y lo alamacena en la variable dividendo
+				printf("\nIngrese el divisor:"); //Solicita al usuario ingresar el divisor
+				scanf("%f",&divisor); //leer el valor del divisor desde la entrada estándar y lo alamacena en la variable divisor
+				cociente=dividendo/divisor; // Realizar la operación de división y almacena el resultado en la variable cociente 
+				if(divisor!=0){ // Verifica si el divisor es diferente de cero
+				printf("El cociente es: %.2f",cociente);	//imprime el cociente si el divisor es diferente de cero 
+				}
+				if(divisor==0){ //Verifica si el divisor es igual a cero
+				printf("Error"); //Imprime "Error" si el divisor es igual a cero
+				}
+				/////////////////////////////////////////
+				printf("\nDesea realizar otra operacion \n(S)Si\n(Cualquier Tecla)No\n");
+				scanf("%c",&SoN);scanf("%c",&SoN);//Escanea y almacena el dato de entrada en la variable SoN	
+			}
+			break;
+			//RAIZ CUADRADA
+			case 5:
+				system("cls");//Elimina lo que se muestra en pantalla
+				SetConsoleTextAttribute(hConsole, 3);//Me sirve para cambair el color del texto en la pantalla
+				printf("Se ha pulsado Raiz cuadrada\n");
+				SetConsoleTextAttribute(hConsole, 7);
+				printf("Si desea continuar con la operacion presione la letra s, caso contrario presione cualquier tecla\n");//Imprime El mensaje en la consola una sola vez
+				scanf("%c",&SoN);scanf("%c",&SoN);
+			while(SoN=='S'||SoN=='s')//Evalua dos condiciones dentro del While por si es S mayuscula o minuscula
+			{
+				////////////////////////////////////////////
+					printf("Introduzca un digito:  "); //Comando de impresion 
+					scanf("%f", &n ); //Comando de escaneo de entrada de variable
+					if(n > 0){ // Condicion (SI) para delimitar parametros en las siguientes lineas de codigo  	
+					float g = 0.000001, raiz = g; //Variable flotante para el funcionamiento de la raiz cuadrada 	
+					while(raiz*raiz < n){ // Ciclo para delimitar que la raiz multiplicada por si misma sea menor que la variable flotante	
+						raiz += g; //Condiciones 	
+					}
+					printf("\n%f", sqrt(n));	//Comando para imprimir la respuesta de la raiz cuadrada 		
+					}
+					else{ //Condicion (De lo contrario) para arrojar otra respuesta cuando el numero sea negativo	
+					printf("\n%f", sqrt(-n)); //Comando de impresion de numeros negaativos o imaginarios en la raiz cuadrada 
+					printf("i\n");	
+						}	//Cierre de programa 
+				/////////////////////////////////////////
+				printf("\nDesea realizar otra operacion \n(S)Si\n(Cualquier Tecla)No\n");
+				scanf("%c",&SoN);scanf("%c",&SoN);//Escanea y almacena el dato de entrada en la variable SoN
+			}
+			break;
+			//POTENCIA
+			case 6:
+			system("cls");//Elimina lo que se muestra en pantalla
+			SetConsoleTextAttribute(hConsole, 4);//Me sirve para cambair el color del texto en la pantalla
+			printf("Se ha pulsado Potencia\n");
+			SetConsoleTextAttribute(hConsole, 7);
+			printf("Si desea continuar con la operacion presione la letra s, caso contrario presione cualquier tecla\n");//Imprime El mensaje en la consola una sola vez
+			scanf("%c",&SoN);scanf("%c",&SoN);
+			while(SoN=='S'||SoN=='s')//Evalua dos condiciones dentro del While por si es S mayuscula o minuscula
+			{
+				////////////////////////////////////////////
+				printf("Ingrese la base de la potencia como numero entero: ");
+				scanf("%i",&base);
+				printf("Ingrese el exponentede de la potencia como numero entero: ");
+				scanf("%i",&exp);
+				for (R=1;exp>0;exp--)
+				R*=base;
+				printf ("El Resultado es: %i\n",R);					
+				/////////////////////////////////////////
+				printf("\nDesea realizar otra operacion \n(S)Si\n(Cualquier Tecla)No\n");
+				scanf("%c",&SoN);scanf("%c",&SoN);//Escanea y almacena el dato de entrada en la variable SoN	
+			}	
+			break;
+			//POLINOMIO
+			case 7:
+			system("cls");//Elimina lo que se muestra en pantalla
+			SetConsoleTextAttribute(hConsole, 5);//Me sirve para cambair el color del texto en la pantalla
+			printf("Se ha pulsado Polinomio cuadrado\n");
+			SetConsoleTextAttribute(hConsole, 7);
+			printf("Si desea continuar con la operacion presione la letra s, caso contrario presione cualquier tecla\n");//Imprime El mensaje en la consola una sola vez
+			scanf("%c",&SoN);scanf("%c",&SoN);
+			while(SoN=='S'||SoN=='s')//Evalua dos condiciones dentro del While por si es S mayuscula o minuscula
+			{
+				////////////////////////////////////////////
+				   printf("\n\t\tSolucion de una ecuacion de segundo grado");
+				   printf("\n\t\t_________________________________________\n\n\n");
+				   printf("\t\t\tEscribe el valor de a --> ");
+				   scanf("%f", &a);
+				   while(a==0){
+				   printf("\t\tEl valor de a no puede ser 0 ingrese el valor de nuevo -->");
+				   scanf("%f", &a);
+				   }
+				   printf("\t\t\tEscribe el valor de b --> ");
+				   scanf("%f", &b);
+				   printf("\t\t\tEscribe el valor de c --> ");
+				   scanf("%f", &c);
+				   disc=pow(b, 2.0)-4*a*c;
+				   if(disc>0.0){
+				       printf("\t\t\tLas dos raices son reales");
+				       x1=((-b+sqrt(disc))/(2.0*a));
+				       x2=((-b-sqrt(disc))/(2.0*a));
+				       printf("\n\t\t\tx1=%.2f   x2=%.2f", x1, x2);
+				   }
+				   else{
+				       if(disc==0.0){
+				           x1=(-b)/(2.0*a);
+				           printf("\n\t\t\tLa ecuacion solo tiene una raiz %.2f", x1);
+				       }
+				       else{
+				           xr=(-b/(2.0*a));
+				           xi=(sqrt(-disc)/(2.0*a));
+				           printf("\n\t\tLa raiz real es %.2f y la imaginaria es %.2f", xr, xi);
+				       }
+				   }
+				   printf("\n\n\t\t\t");
+				/////////////////////////////////////////
+				printf("\nDesea realizar otra operacion \n(S)Si\n(Cualquier Tecla)No\n");
+				scanf("%c",&SoN);scanf("%c",&SoN);//Escanea y almacena el dato de entrada en la variable SoN
+			}
+			break;
+			//CREDITOS
+			case 8:
+			system("cls");//Elimina lo que se muestra en pantalla
+			SetConsoleTextAttribute(hConsole, 3);//Me sirve para cambair el color del texto en la pantalla
+			printf("PROYECTO ELABORADO POR:\n");
+			printf("-Omar Vega\n-Jean Paul\n-Joselin Chasipanta\n-Gustavo Tello\nNRC:13054\nUNIVERSIDAD DE LAS FUERZAS ARMADAS ESPE\n");
+			SetConsoleTextAttribute(hConsole, 7);
+			printf("Presione cualquier tecla\n");//Imprime El mensaje en la consola una sola vez
+			scanf("%c",&SoN);scanf("%c",&SoN);		
+			break;
+			//SALIR
+			case 9:
+			system("cls");//Elimina lo que se muestra en pantalla
+			SetConsoleTextAttribute(hConsole, 4);//Me sirve para cambair el color del texto en la pantalla
+			printf("Se ha pulsado Salir\n");
+			SetConsoleTextAttribute(hConsole, 7);
+			printf("PROYECTO CALCULADORA V.J.J.G ESPE\n");//Imprime El mensaje en la consola una sola vez
+			break;
+			
+			default:
+			printf("Esta opcion no se encuentra dentro del valor de 1 y 8 del menu de opciones\n");
+			break;	
+		}
+	}while(valor!=9);	//Si el rango esta entre 1 a 7 el while se sigue ejecutando y si es 8 sale del while
+}
